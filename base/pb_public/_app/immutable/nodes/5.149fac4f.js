@@ -1,0 +1,1 @@
+import{default as a}from"../chunks/_page.1a33c302.js";async function o({url:e}){return console.log(e.search),{}}const t=Object.freeze(Object.defineProperty({__proto__:null,load:o},Symbol.toStringTag,{value:"Module"}));export{a as component,t as universal};

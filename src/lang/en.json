@@ -1,0 +1,25 @@
+{
+  "intro": "The following is a list of all the commands you can use with the bot.",
+  "sign": {
+    "title": "Sign In to continue",
+    "with": "Sign in with",
+    "btn": "Sign In",
+    "failed": "Failed to authenticate",
+    "success": "Success sign in, loading the page..."
+  },
+  "userOrEmail": {
+    "label": "Username or Email",
+    "placeholder": "Type username or email"
+  },
+  "email": {
+    "label": "Email",
+    "placeholder": "Type email"
+  },
+  "password": {
+    "label": "Password",
+    "placeholder": "Type password"
+  },
+  "back": {
+    "home": "Back to Home"
+  }
+}
