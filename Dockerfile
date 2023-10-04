@@ -16,7 +16,9 @@ RUN curl -L https://github.com/pocketbase/pocketbase/releases/download/v${PB_VER
     unzip /tmp/pb.zip -d /usr/local/bin && \
     rm -rf /tmp/pb.zip
 # uncomment to copy the local pb_migrations dir into the image
-# COPY ./pb_migrations /pb/pb_migrations
+COPY ./base/pb_migrations /app/pb_migrations
+COPY ./base/pb_hooks /app/pb_hooks
+COPY ./base/pb_public /app/pb_public
 
 # uncomment to copy the local pb_hooks dir into the image
 # COPY ./pb_hooks /pb/pb_hooks
