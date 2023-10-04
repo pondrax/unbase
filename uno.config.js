@@ -19,7 +19,7 @@ export default defineConfig({
 	presets: [
 		presetUno(),
 		presetIcons({
-			// scale: 1.3
+			scale: 1.5
 		}),
 		presetAttributify(),
 		presetFloe()

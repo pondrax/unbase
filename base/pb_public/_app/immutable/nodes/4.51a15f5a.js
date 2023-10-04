@@ -1,1 +1,0 @@
-import{default as l}from"../chunks/_page.79930e6d.js";const o=!1;async function r({params:e}){return{coba:1,slug:e.slug}}const t=Object.freeze(Object.defineProperty({__proto__:null,load:r,prerender:o},Symbol.toStringTag,{value:"Module"}));export{l as component,t as universal};

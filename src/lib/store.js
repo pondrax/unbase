@@ -1,25 +1,19 @@
-import { browser } from '$app/environment';
-// import { page } from '$app/stores';
 import { writable } from 'svelte/store';
 
-/** @type {import('pocketbase').AuthModel} */
-let defaultUser = null;
-if (browser && localStorage.user) {
-	defaultUser = JSON.parse(localStorage.user);
-}
+/** @type {import('svelte/store').Writable<import('pocketbase').AuthModel>} */
+export const user = writable();
 
-export const user = writable(defaultUser);
-export const profile = writable(defaultUser?.expand?.moms?.at(0));
-export const loading = writable(true);
+/** @type {import('svelte/store').Writable<Record<string,any>[]>} */
 export const toast = writable([]);
+// Page load
+export const pageLoading = writable(true);
+// API load
+export const loading = writable(true);
 
-user.subscribe((val) => {
-	// console.log(val)
-	if (browser && !val) {
-		localStorage.removeItem('user');
-		profile.set(null);
-	}
-});
-toast.subscribe(() => {
-	setTimeout(() => loading.set(false), 500);
-});
+toast.subscribe((alerts) => {
+	alerts.forEach((alert, i) => {
+		if (!alert.error) {
+			setTimeout(() => (toast.set([])), 3000);
+		}
+	});
+})

@@ -7,4 +7,5 @@ languageIds:
 usageMatchRegex:
   - "[^\\w\\d].*?\\$t\\(['\"`]({key})['\"`]"
 
+
 monopoly: true

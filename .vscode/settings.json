@@ -1,0 +1,7 @@
+{
+  "i18n-ally.localesPaths": [
+    "src/lang",
+    "src/routes/app/messages",
+    "base/pb_public/app/messages"
+  ]
+}

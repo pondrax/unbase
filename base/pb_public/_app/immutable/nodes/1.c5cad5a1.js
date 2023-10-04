@@ -1,5 +1,0 @@
-import{s as _,n as b,c as v}from"../chunks/scheduler.07395aec.js";import{S as $,i as x,e as j,t as l,c as y,b as E,h as p,d as h,l as u,f as S,j as m,k as g}from"../chunks/index.93c1016a.js";import{s as k}from"../chunks/singletons.126cf486.js";const q=()=>{const t=k;return{page:{subscribe:t.page.subscribe},navigating:{subscribe:t.navigating.subscribe},updated:t.updated}},C={subscribe(t){return q().page.subscribe(t)}};function D(t){var d;let e,a=t[0].status+"",n,i,o=((d=t[0].error)==null?void 0:d.message)+"",c;return{c(){e=j("div"),n=l(a),i=l(`\r
-  |\r
-  `),c=l(o),this.h()},l(r){e=y(r,"DIV",{flex:!0,"items-center":!0,"justify-center":!0,"h-screen":!0});var s=E(e);n=p(s,a),i=p(s,`\r
-  |\r
-  `),c=p(s,o),s.forEach(h),this.h()},h(){u(e,"flex",""),u(e,"items-center",""),u(e,"justify-center",""),u(e,"h-screen","")},m(r,s){S(r,e,s),m(e,n),m(e,i),m(e,c)},p(r,[s]){var f;s&1&&a!==(a=r[0].status+"")&&g(n,a),s&1&&o!==(o=((f=r[0].error)==null?void 0:f.message)+"")&&g(c,o)},i:b,o:b,d(r){r&&h(e)}}}function I(t,e,a){let n;return v(t,C,i=>a(0,n=i)),[n]}let A=class extends ${constructor(e){super(),x(this,e,I,D,_,{})}};export{A as component};

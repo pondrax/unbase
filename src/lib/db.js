@@ -1,7 +1,17 @@
-import { PUBLIC_POCKETBASE_URL } from '$env/static/public'
+import { PUBLIC_BASEDEV_URL, PUBLIC_BASE_URL } from '$env/static/public'
 import PocketBase from 'pocketbase'
+import { dev, browser } from '$app/environment'
+import { user, toast } from '$lib/store'
+export const db = new PocketBase(dev ? PUBLIC_BASEDEV_URL : PUBLIC_BASE_URL)
 
-export const db = new PocketBase(PUBLIC_POCKETBASE_URL)
+
+db.authStore.onChange((token, model) => {
+  console.log('client', model)
+  user.set(model)
+  if (browser) {
+    document.cookie = db.authStore.exportToCookie({ httpOnly: false })
+  }
+}, true)
 
 export const auth = {
   /**
@@ -15,9 +25,15 @@ export const auth = {
         expand: 'role'
       });
     } catch (e) {
-      console.log(authResponse)
+      // console.log(authResponse)
     }
+
     return authResponse
+  },
+
+  async logout() {
+    db.authStore.clear()
+
   },
   /**
    * @param {string} name
@@ -34,9 +50,26 @@ export const auth = {
     });
 
     return authResponse;
-  },
-
-  async listProviders() {
-    return (await db.collection('users').listAuthMethods()).authProviders
   }
+}
+
+export async function submit(/** @type {SubmitEvent} */ { target }) {
+  let response, error;
+  if (target instanceof HTMLFormElement) {
+    const collectionName = String(target.action.split('?/').pop())
+    const form = new FormData(target);
+    try {
+      if (form.get('id')) {
+        response = await db.collection(collectionName).update(String(form.get('id')), form)
+      } else {
+        response = await db.collection(collectionName).create(form)
+      }
+    } catch (e) {
+      // @ts-ignore
+      error = Object.keys(e.data.data).length > 0 ? e.data.data : e.message;
+      toast.set([{ error }]);
+    }
+    target.reset()
+  }
+  return response;
 }

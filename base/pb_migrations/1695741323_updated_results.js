@@ -1,0 +1,16 @@
+/// <reference path="../pb_data/types.d.ts" />
+migrate((db) => {
+  const dao = new Dao(db)
+  const collection = dao.findCollectionByNameOrId("k8ed0v6xl9k5m8p")
+
+  collection.name = "audits"
+
+  return dao.saveCollection(collection)
+}, (db) => {
+  const dao = new Dao(db)
+  const collection = dao.findCollectionByNameOrId("k8ed0v6xl9k5m8p")
+
+  collection.name = "results"
+
+  return dao.saveCollection(collection)
+})

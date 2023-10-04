@@ -1,3 +1,4 @@
+import { browser } from '$app/environment';
 import i18n from 'sveltekit-i18n';
 
 
@@ -14,7 +15,10 @@ function loaders() {
   });
 }
 
-/** @type {import('sveltekit-i18n').Config} */
+/**
+ * Configuration for i18n module.
+ * @type {import('sveltekit-i18n').Config<any>}
+ */
 const config = ({
   // @ts-ignore
   loaders: loaders()
@@ -30,3 +34,9 @@ const config = ({
 });
 
 export const { t, locale, locales, loading, loadTranslations } = new i18n(config);
+
+locale.subscribe((lang) => {
+  if (lang && browser) {
+    document.cookie = `lang=${lang}; path=/`
+  }
+})

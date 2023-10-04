@@ -5,13 +5,8 @@
   import { toast } from "$lib/store";
   import { onMount } from "svelte";
 
-  /**
-   * @type {import("pocketbase").AuthProviderInfo[]}
-   */
-  let authProviders = [];
-  onMount(async () => {
-    authProviders = await auth.listProviders();
-  });
+  export let data;
+  let authProviders = data.authProviders;
 
   /**
    * @param {SubmitEvent} event
@@ -20,7 +15,7 @@
     if (target instanceof HTMLFormElement) {
       const form = new FormData(target);
       let authResponse;
-      console.log(form, target);
+      // console.log(form, target);
       if (form.get("provider")) {
         authResponse = await auth.provider(String(form.get("provider")));
       } else {
@@ -63,6 +58,7 @@
             input
             name="email"
             placeholder={$t("userOrEmail.placeholder")}
+            autocomplete="off"
             autofocus
             required
           />
@@ -77,9 +73,10 @@
             required
           />
         </div>
-        <button btn="~ secondary" mt-3 w-full>{$t("sign.btn")}</button>
+        <button btn="~ secondary" mt-3 w-full>{$t("sign.btn.in")}</button>
       </form>
-      <div text-center my-5 border-2 />
+
+      <div text-center my-5 border-y-2 h-1 />
 
       <div>
         {#each authProviders as method}

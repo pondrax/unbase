@@ -1,3 +1,0 @@
-import{s as m,n as l}from"./scheduler.07395aec.js";import{S as _,i as u,e as h,t as o,c as p,b as v,h as c,d,f,j as y,k as x}from"./index.93c1016a.js";function S(r){let t,e=JSON.stringify(r[0])+"",i,s;return{c(){t=h("div"),i=o(e),s=o(`\r
-this is dynamic`)},l(a){t=p(a,"DIV",{});var n=v(t);i=c(n,e),n.forEach(d),s=c(a,`\r
-this is dynamic`)},m(a,n){f(a,t,n),y(t,i),f(a,s,n)},p(a,[n]){n&1&&e!==(e=JSON.stringify(a[0])+"")&&x(i,e)},i:l,o:l,d(a){a&&(d(t),d(s))}}}function g(r,t,e){let{data:i}=t;return r.$$set=s=>{"data"in s&&e(0,i=s.data)},[i]}class O extends _{constructor(t){super(),u(this,t,g,S,m,{data:0})}}export{O as default};
