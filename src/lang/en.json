@@ -46,5 +46,15 @@
     "indekskami": {
       "title": "Indeks Kami"
     }
+  },
+  "save": {
+    "btn": "Save"
+  },
+  "action": {
+    "saved": "Data Saved"
+  },
+  "all": {
+    "list": "LIST",
+    "info": "INFO"
   }
 }

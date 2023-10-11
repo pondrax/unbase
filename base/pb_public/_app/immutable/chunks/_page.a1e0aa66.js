@@ -1,1 +1,0 @@
-import{s as o,n as a}from"./scheduler.776094f6.js";import{S as r,i,t as c,b as l,h as m,d as f}from"./index.e335023c.js";function p(s){let t;return{c(){t=c("Dev Pages")},l(e){t=l(e,"Dev Pages")},m(e,n){m(e,t,n)},p:a,i:a,o:a,d(e){e&&f(t)}}}class x extends r{constructor(t){super(),i(this,t,null,p,o,{})}}export{x as default};

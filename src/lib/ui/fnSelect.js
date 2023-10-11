@@ -305,6 +305,7 @@ export function fnSelect(node, baseOptions) {
 			// selected.dataset.selected = JSON.stringify(selectedOptions)
 			selected.value = selectedOptions.at(0)?.[keyvalue] || '';
 			filter.value = selectedOptions.at(0)?.[keylabel] || '';
+			filter.style.height = (filter.scrollHeight + 2) + "px";
 			buttonCheck.checked = false;
 			node.dispatchEvent(new CustomEvent('selected', { detail: selectedOptions.at(0) }));
 		}

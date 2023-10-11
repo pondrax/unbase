@@ -3,5 +3,6 @@
     "src/lang",
     "src/routes/app/messages",
     "base/pb_public/app/messages"
-  ]
+  ],
+  "i18n-ally.keystyle": "nested"
 }

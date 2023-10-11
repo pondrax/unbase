@@ -17,7 +17,7 @@
 		}
 	});
 	afterNavigate(() => {
-		loading.set(false)
+		// loading.set(false)
 		pageLoading.set(false);
 	});
 
